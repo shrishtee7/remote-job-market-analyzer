@@ -55,18 +55,34 @@ st.subheader("Explore Job Listings")
 
 job_titles = sorted(df["job_title"].dropna().unique())
 
+
+
 selected_titles = st.multiselect(
     "Filter by Job Title",
     options=job_titles,
     default=job_titles
 )
 
+
+# Filter by location
+locations = sorted(df["location"].dropna().unique())
+
+selected_locations = st.multiselect(
+    "Filter by Location",
+    options=locations,
+    default=locations
+)
+
+
 filtered_df = df[
     df["job_title"].isin(selected_titles)
 ]
+
 filtered_df = df[
     df["job_title"].isin(selected_titles)
+    & df["location"].isin(selected_locations)
 ].copy()
+
 
 # Filter by minimum years of experience
 st.subheader("Filter by Experience")
@@ -106,21 +122,63 @@ st.subheader("Most Requested Skills")
 
 from collections import Counter
 
+
 all_skills = []
+
+skill_mapping = {
+    "GA4": "Google Analytics",
+    "Dashboarding": "Dashboards",
+    "Data Models": "Data Modeling"
+}
 
 for skill_list in filtered_df["skills"].dropna():
     for skill in skill_list.split(";"):
         skill = skill.strip()
-        if skill:
-            all_skills.append(skill)
+
+        if not skill:
+            continue
+
+        normalized_skill = skill_mapping.get(
+            skill,
+            skill
+        )
+
+        all_skills.append(normalized_skill)
+
 
 skill_counts = Counter(all_skills)
 
+
 if skill_counts:
+    # Count each skill at most once per job listing
+    skill_job_counts = Counter()
+
+    for skill_list in filtered_df["skills"].dropna():
+        job_skills = set()
+
+        for skill in skill_list.split(";"):
+            skill = skill.strip()
+
+            if skill:
+                normalized_skill = skill_mapping.get(
+                    skill, skill
+                )
+                job_skills.add(normalized_skill)
+
+        skill_job_counts.update(job_skills)
+
     skills_df = pd.DataFrame(
-        skill_counts.most_common(10),
+        skill_job_counts.most_common(10),
         columns=["Skill", "Job_Count"]
     )
+
+    total_listings = len(filtered_df)
+
+    if total_listings > 0:
+        skills_df["Percentage"] = (
+            skills_df["Job_Count"] / total_listings * 100
+        ).round(1)
+
 
     skills_df = skills_df.sort_values(
         "Job_Count", ascending=True
@@ -135,6 +193,13 @@ if skill_counts:
 
     fig.tight_layout()
     st.pyplot(fig)
+    st.subheader("Skill Frequency Table")
+    st.dataframe(
+    skills_df.sort_values(
+        "Job_Count", ascending=False
+    ),
+    use_container_width=True
+)
     plt.close(fig)
 else:
     st.info("No skills available for the selected listings.")

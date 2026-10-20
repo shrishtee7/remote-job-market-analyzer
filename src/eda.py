@@ -80,12 +80,31 @@ from collections import Counter
 
 all_skills = []
 
+
+# Standardize skill names before counting
+skill_mapping = {
+    "GA4": "Google Analytics",
+    "Dashboarding": "Dashboards",
+    "Data Models": "Data Modeling"
+}
+
 for skill_list in df["skills"].dropna():
     skills = skill_list.split(";")
+
     for skill in skills:
         skill = skill.strip()
-        if skill:
-            all_skills.append(skill)
+
+        if not skill:
+            continue
+
+        # Match names without case sensitivity
+        normalized_skill = skill_mapping.get(
+            skill,
+            skill
+        )
+
+        all_skills.append(normalized_skill)
+
 
 skill_counts = Counter(all_skills)
 
