@@ -7,6 +7,8 @@ __pycache__/
 .venv/
 venv/
 
+
+
 # Environment variables and secrets
 .env
 .env.*
@@ -21,4 +23,6 @@ Thumbs.db
 # Local data files
 data/raw/
 data/*.xlsx
-data/*.csv
+
+
+term.txt
