@@ -6,6 +6,13 @@ The **Remote Job Market Analyzer** is a Python-based data analytics project that
 
 The project uses data cleaning, exploratory data analysis (EDA), data visualization, and an interactive Streamlit dashboard to turn job listing data into actionable insights.
 
+## Live Dashboard
+
+**Explore the interactive dashboard:** [Open Remote Job Market Analyzer](https://remote-job-market-analyzer-czwwnzxwdzmci4zcttt3bp.streamlit.app/)
+
+Explore remote job listings, filter by job title and location, analyze experience requirements, and discover frequently requested skills and available salary information.
+
+
 ## Objectives
 
 - Analyze the distribution of remote job roles.
