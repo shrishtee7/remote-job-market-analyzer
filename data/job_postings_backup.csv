@@ -1,0 +1,23 @@
+
+job_id,job_title,company,location,remote_status,experience_min,experience_max,skills,salary_min,salary_max,salary_currency,salary_period,job_url,date_collected,required_skills,work_shift
+
+JOB001,Data Analyst,Jobgether partner company,India,Fully Remote,1,5,"SQL; Python; Spark; Power BI; Looker; Tableau; GitHub; BigQuery; Snowflake",,,,,"",2026-10-20
+
+
+JOB002,Business Intelligence Analyst,Not specified,Remote,Fully Remote,,,"SQL; Relational Databases; Tableau; Power BI; Looker; Python; R; Statistics",,,,,2026-10-20,"SQL; Relational Databases; BI Tools; Statistics; Python or R",Flexible hours
+
+JOB003,Data Science Coordinator,Not specified,Remote,Fully Remote,1,3,"Python; R; Statistics; KPIs; Data Models; Data Pipelines; Reporting; Communication",,,,,2026-10-20,"Python or R; Statistics; Remote Collaboration; Communication",Flexible hours
+
+JOB004,Data & Analytics Engineer,Curvion,Remote,Fully Remote,,,"SQL; Python; BigQuery; ETL/ELT; Looker Studio; Data Quality; Data Pipelines; Dashboarding",8,10,USD,Hourly,,"SQL; Python; BigQuery; ETL/ELT; Looker Studio",Monday-Friday 9AM-6PM PST
+
+
+JOB005,Operations Analyst,Not specified,Remote,Fully Remote,,,"SQL; Relational Databases; Python; R; Statistics; Data Cleaning; Data Analysis; Process Improvement; Reporting",,,,,2026-10-20,"SQL; Statistics; Python or R; Data Manipulation",Flexible hours
+JOB006,Data Analyst,Portcast,Remote,Fully Remote,2,3,"Python; SQL; Data Quality; Root-Cause Analysis; Data Visualization; Automation; Dashboards; Machine Learning",,,,,,"Python; SQL; Data Quality; Root-Cause Analysis; Data Visualization; Automation; Dashboards",Not specified
+
+JOB007,Data Analyst,Not specified,Remote,Fully Remote,2,5,"Excel; Google Sheets; SQL; Power BI; Tableau; Looker Studio; GA4; Python; R; Marketing Analytics; Statistics; KPI Reporting",,,,,,"Excel; Google Sheets; SQL; Data Visualization; Analytical Thinking; Communication",Not specified
+
+JOB008,Data Analyst,Data Eminence,Remote,Fully Remote,0,2,"Excel; Google Sheets; SQL; Python; Pandas; NumPy; Power BI; Tableau; Statistics; Data Cleaning; Data Visualization; Dashboards; KPI Reporting; AI Analytics",,,,,,"Excel; Google Sheets; SQL; Python; Data Cleaning; Data Visualization; Statistics",Not specified
+
+JOB009,Power BI Analyst,Med-Metrix,Remote,Fully Remote,1,3,"Power BI; DAX; SQL; Data Modeling; Data Visualization; Data Warehousing; Microsoft Office; Healthcare Analytics; Revenue Cycle Management; HIPAA",,,,,,"Power BI; DAX; SQL; Data Modeling; Data Visualization; Healthcare Analytics; Communication",Monday-Friday 9PM-5AM (timezone not specified)
+
+JOB010,Data Analyst,LLM Decode,Remote,Fully Remote,1,3,"SQL; Excel; Google Sheets; Looker Studio; Power BI; Tableau; Google Analytics; Python; R; Statistics; A/B Testing; Growth Analytics; Data Visualization; AI Tools",,,,,,"SQL; Excel; Google Sheets; Data Visualization; Analytical Thinking; Communication; A/B Testing",Not specified
