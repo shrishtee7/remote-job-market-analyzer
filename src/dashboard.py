@@ -253,3 +253,60 @@ else:
         "No listings with both numeric minimum and maximum "
         "salary values are available for the selected jobs."
     )
+    
+# Historical Kaggle skills analysis
+st.divider()
+st.subheader("Historical Data Analyst Skills Insights")
+
+st.write(
+    "The following analysis is based on a Kaggle job-postings "
+    "dataset collected in January 2024. It represents historical "
+    "skill mentions, not current remote-job demand."
+)
+
+SKILLS_REPORT = (
+    PROJECT_ROOT
+    / "reports"
+    / "data_analyst_skill_frequency_cleaned.csv"
+)
+
+
+if SKILLS_REPORT.exists():
+    historical_skills_df = pd.read_csv(SKILLS_REPORT)
+
+    # Display the top 10 skills in a table
+    top_skills = historical_skills_df.head(10).copy()
+
+    st.dataframe(
+        top_skills,
+        use_container_width=True,
+        hide_index=True
+    )
+
+    # Display a bar chart of the top 10 skills
+    st.subheader("Top 10 Data Analyst Skills")
+
+    chart_df = top_skills.sort_values(
+        "job_count",
+        ascending=True
+    )
+
+    fig, ax = plt.subplots(figsize=(10, 6))
+
+    ax.barh(
+        chart_df["skill"],
+        chart_df["job_count"]
+    )
+
+    ax.set_xlabel("Number of Skill Mentions")
+    ax.set_ylabel("Skill")
+    ax.set_title("Top 10 Skills in Historical Job Postings")
+
+    fig.tight_layout()
+    st.pyplot(fig)
+    plt.close(fig)
+
+else:
+    st.warning("The historical skills report was not found.")
+
+
